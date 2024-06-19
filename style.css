@@ -127,6 +127,7 @@ nav ul{
   height: 10em;
   border-radius: 50%;
   margin-bottom: 10px;
+  object-fit: cover;
 }
 
 .testimonial p {
