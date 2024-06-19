@@ -137,6 +137,7 @@ nav ul{
 /* Secção de Promoções - Inicio*/
 .promotions-section {
   margin-top: 4em;
+  top: 1;
   text-align: center;
   padding: 400px 20px;
   background-color: #f4f4f4;
