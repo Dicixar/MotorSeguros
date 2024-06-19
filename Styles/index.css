@@ -1,0 +1,105 @@
+/* Secção de Boas-vindas - Inicio */
+.welcome-section {
+    margin-top: 4em;
+    top: 1;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .welcome-section h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+  }
+  
+  .welcome-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Secção de Vantagens - Inicio */
+  .advantages-section {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #e9ecef;
+  }
+  
+  .advantages-section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  
+  .advantages-section .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .advantages-section .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Blocos de Comentários de Clientes - Inicio */
+  .testimonial-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 20px;
+    background-color: #fff;
+  }
+  
+  .testimonial {
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .testimonial img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial p {
+    font-size: 16px;
+  }
+  
+  /* Secção de Promoções - Inicio*/
+  .promotions-section {
+    margin-top: 4em;
+    top: 1;
+    text-align: center;
+    padding: 400px 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .promotions-section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  
+  .promotions-section .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .promotions-section .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+  
+  @media only screen and (max-width: 600px){
+    nav ul{
+        flex-direction: column;
+    }
+  }
+  
