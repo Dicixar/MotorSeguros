@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotorSeguros</title>
+    <link rel="stylesheet" href="Styles/LoginUser.css">
+    <link rel="stylesheet" href="Styles/mainStyle.css">
+    <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo/2.png">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Seguros.html">Simulador</a></li>
+                <li><a href="Promo.html">Promoções</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
+                <li><a href="#" id="logout" onclick="Logout()">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="contacts-section">
+        <div class="contact-info">
+            <section class="message-form-section">
+                <h2>Os Seus Dados</h2>
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" readonly>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" readonly>
+                    <label for="modelo">Seguro:</label>
+                    <input type="text" id="seguro" name="seguro" value="Seguro de Danos Próprios" readonly>
+                    <label for="cobertura">Cobertura:</label>
+                    <input type="text" id="cobertura" name="cobertura" value="Danos causados por acidentes de trânsito"
+                        readonly>
+                    <label for="preco">Preço:</label>
+                    <input type="text" id="preco" name="preco" value="100€/Ano" readonly>
+
+
+
+                </form>
+            </section>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <ul>
+                    <li><i class="fa-brands fa-facebook"></i><a href="#"> </a><i class="fa-brands fa-twitter"></i><a
+                            href="#"> </a><i class="fa-brands fa-instagram"></i><a href=""> </a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
+                    <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
+                    <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
+                    <li><i class="fa-regular fa-address-card"></i><a href="Contactos.html"> Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <p>Email: motorseguros@gmail.com</p>
+                <p>Telefone: +351 915 406 804</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
+        </div>
+        <script>
+            // Recupera os dados do localStorage
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (user) {
+                document.getElementById('nome').value = user.name;
+                document.getElementById('email').value = user.email;
+            } else {
+                // Se não houver dados do utilizador, redireciona para a página de login
+                window.location.replace('Login.html');
+            }
+
+            function Logout() {
+                localStorage.removeItem('user');
+                window.location.replace('index.html');
+            }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+/* Site */
+.site {
+  display: flex;
+  color: white;
+}
+
+/* Secção de Boas-vindas - Inicio */
+.welcome-section {
+  margin-top: 5em;
+  top: 1;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+}
+
+.welcome-section h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+}
+
+.welcome-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Secção de Vantagens - Inicio */
+.advantages-section {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #e9ecef;
+}
+
+.advantages-section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.advantages-section .btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.advantages-section .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Blocos de Comentários de Clientes - Inicio */
+.testimonial-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 20px;
+  background-color: #fff;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que os itens se organizem em múltiplas linhas em telas menores */
+}
+
+.testimonial {
+  text-align: center;
+  max-width: 200px;
+  flex: 1;
+  margin: 10px;
+}
+
+.testimonial img {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  object-fit: cover; /* Assegura que a imagem preencha o container, mantendo a proporção */
+  margin-bottom: 10px;
+}
+
+.testimonial p {
+  font-size: 16px;
+}
+
+/* Secção de Vantagens */
+.advantages-section {
+  text-align: center;
+  padding: 7em 5em;
+  background-color: #e9ecef;
+  position: relative;
+  color: #fff;
+  background: url('teste.webp') no-repeat center center/cover;
+  /* Adiciona uma sobreposição escura para melhor contraste */
+  background-blend-mode: darken;
+}
+
+.advantages-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura */
+  z-index: 1;
+}
+
+.advantages-section h2,
+.advantages-section .btn {
+  position: relative;
+  z-index: 2;
+}
+
+.advantages-section .btn {
+  background-color: #686D76;;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.advantages-section .btn:hover {
+  background-color: #373A40;
+}

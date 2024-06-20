@@ -4,26 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MotorSeguros</title>
+    <link rel="stylesheet" href="Styles/ContactosStyle.css">
+    <link rel="stylesheet" href="Styles/mainStyle.css">
     <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBku7KvLSE9pn74cfA7F404DMBP_ZyGQWg"></script>
-    <script>
-        function initMap() {
-            var location = { lat: 38.70276585946272, lng: -8.948877510741637 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 17,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-    </script>
 </head>
 
-<body onload="initMap()">
+<body>
     <nav>
         <div class="menu">
             <div class="logo">
@@ -36,8 +23,12 @@
                 <li><a href="Seguros.html">Simulador</a></li>
                 <li><a href="Promo.html">Promoções</a></li>
                 <li><a href="Contactos.html">Contacto</a></li>
-                <li><a href="Login.html">Login</a></li>
+                <li><a href="Login.html" id="login">Login</a></li>
+                <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
             </ul>
+            <!-- <div class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div> -->
         </div>
     </nav>
     <section class="contacts-section">
@@ -65,8 +56,10 @@
             </section>
         </div>
         <div class="map-container">
-            <h2>Localização</h2>
-            <div id="map" style="height: 35em; width: 100%;"></div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.167979678768!2d-9.158105589544974!3d38.759851054692135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933843c8532a3%3A0xd93296749817b174!2sIPLUSO%20-%20Instituto%20Polit%C3%A9cnico%20da%20Lusofonia!5e0!3m2!1spt-PT!2spt!4v1718793809163!5m2!1spt-PT!2spt"
+                width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <footer>
@@ -84,7 +77,7 @@
                     <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
                     <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
                     <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
-                    <li><i class="fa-regular fa-address-card"></i><a href="Contacto.html"> Contacto</a></li>
+                    <li><i class="fa-regular fa-address-card"></i><a href="Contactos.html"> Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -96,6 +89,34 @@
         <div class="footer-bottom">
             <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
         </div>
+    </footer>
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (user) {
+
+            // Utilizador está logado, mostra o botão de Logout
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('profile').style.display = 'block';
+
+
+        } else {
+            // Utilizador não está logado, mostra o botão de Login
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('profile').style.display = 'none';
+        }
+        function Profile() {
+            if (user.name == 'admin') {
+                window.location.replace('LoginAdmin.html');
+            }
+            else if (user) {
+                window.location.replace('LoginUser.html');
+            }
+            else {
+                window.location.replace('Login.html');
+            }
+        }
+    </script>
 
 </body>
 

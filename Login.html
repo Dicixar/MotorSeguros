@@ -2,37 +2,35 @@
 <html>
 
 <head>
-    <title>HTML Login Form</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MotorSeguros</title>
+    <link rel="stylesheet" href="Styles/loginStyle.css">
+    <link rel="stylesheet" href="Styles/mainStyle.css">
 </head>
 
 <body class="body_login">
     <nav>
         <div class="menu">
-          <div class="logo">
-            <a href="index.html">
-              <img src="Logo/2.png">
-            </a>
-          </div>
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Seguros.html">Simulador</a></li>
-            <li><a href="Promo.html">Promoções</a></li>
-            <li><a href="Contactos.html">Contacto</a></li>
-            <li><a href="Login.html">Login</a></li>
-          </ul>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo/2.png">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Seguros.html">Simulador</a></li>
+                <li><a href="Promo.html">Promoções</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
+                <li><a href="Login.html">Login</a></li>
+            </ul>
         </div>
-      </nav>
+    </nav>
+    </section>
     <div class="main-login">
         <h3>Introduza os seus dados</h3>
         <form action="">
-            <label style="display: none;" class="lblog" for="email">Email:</label>
-            <input style="display: none;" class="inputlog" type="email" id="email" name="email"
-                placeholder="Introduza o Email" required>
 
-            <label class="lblog" for="first">Username:</label>
-            <input class="inputlog" type="text" id="first" name="first" placeholder="Introduza o Nome de Utilizador"
-                required>
+            <label class="lblog" for="first">Email:</label>
+            <input class="inputlog" type="text" id="email" name="first" placeholder="Introduza o Email" required>
 
             <label class="lblog" for="password">Password:</label>
             <input type="password" class="inputlog" id="password" name="password" placeholder="Introduza a Password"
@@ -40,73 +38,48 @@
 
             <div class="wrap">
                 <button type="submit" id="login" class="btnlog" onclick="Entrar()">Login</button>
-                <button type="submit" id="signup" style="display: none;" class="btnlog"
-                    onclick="Criar()">SignUp</button>
             </div>
         </form>
-        <p id="p1">Nâo tem conta?<a id="a1" href="#" onclick="Registo()" style="text-decoration: none;">Crie uma
-                Conta</a></p>
-        <p style="display: none;" id="p2">Já tem conta?<a href="#" id="a2" onclick="Login()"
-                style="text-decoration: none; display: none;">Login</a></p>
+        <span class="form__span" id="status"></span>
     </div>
     <script>
+        const emailInput = document.getElementById('email'),
+            nameInput = document.getElementById('nome'),
+            passInput = document.getElementById('password'),
+            loginBtn = document.getElementById('login'),
+            signupBtn = document.getElementById('signup'),
+            statusSpan = document.getElementById('status')
 
-        function Registo() {
-            document.getElementById("login").style.display = "none";
-            document.getElementById("signup").style.display = "block";
-            document.getElementById("email").style.display = "block";
-            document.getElementsByClassName("lblog")[0].style.display = "block";
-            document.getElementById("p2").style.display = "block";
-            document.getElementById("a2").style.display = "block";
-            document.getElementById("p1").style.display = "none";
-            document.getElementById("a1").style.display = "none";
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault()
 
-        }
-        function Login() {
-            document.getElementById("login").style.display = "block";
-            document.getElementById("signup").style.display = "none";
-            document.getElementById("email").style.display = "none";
-            document.getElementsByClassName("lblog")[0].style.display = "none";
-            document.getElementById("p2").style.display = "none";
-            document.getElementById("a2").style.display = "none";
-            document.getElementById("p1").style.display = "block";
-            document.getElementById("a1").style.display = "block";
-        }
-        function Entrar() {
-            var user = document.getElementById("first").value;
-            var pass = document.getElementById("password").value;
-            if (user == "admin" && pass == "admin") {
-                window.location.href = "index.html";
-            } else {
-                alert("Username ou Password incorretos");
-            }
-        }
-        function Criar() {
-            var user = document.getElementById("first").value;
-            var pass = document.getElementById("password").value;
-            var email = document.getElementById("email").value;
-            if (user == "" || pass == "" || email == "") {
-                alert("Preencha todos os campos");
-            } 
-            else 
-            {
-                // Dados de login a serem guardados
-                const dadosLogin = {
-                    utilizadores: [
-                        { email: email, username: user, password: pass }
-                    ]
-                };
+            Entrar(emailInput.value, passInput.value)
+        })
 
-                // Guardar os dados num ficheiro JSON
-                fs.writeFile('dados_login.json', JSON.stringify(dadosLogin, null, 4)), (err) => {
-                    if (err) {
-                        console.error("Erro ao guardar os dados:", err);
-                        return;
+        async function Entrar(emailForm, passForm) {
+            const users = await getData('./dados.json')
+
+            users.forEach(user => {
+                if (emailForm == user.email && passForm == user.password) {
+                    console.log('Login Realizado')
+                    localStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email, role: user.role }));
+                    if (user.name == 'admin') {
+                        window.location.replace('LoginAdmin.html')
                     }
-                    alert("Dados de login guardados com sucesso.");
+                    else
+                        window.location.replace('LoginUser.html')
+                } else {
+                    statusSpan.textContent = 'Email ou Senha incorretos'
                 }
-            }
+            });
         }
+
+        async function getData(src) {
+            const response = await fetch(src)
+            const responseJson = await response.json()
+            return responseJson
+        }
+
     </script>
 </body>
 

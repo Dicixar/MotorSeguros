@@ -1,0 +1,61 @@
+/* Login */
+.body_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 40em;
+    background: #EEEEEE;
+    flex-direction: column;
+    margin: 0;
+}
+
+.main-login {
+    margin-top: 2em;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    width: 31em;
+    text-align: center;
+}
+
+
+.lblog {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+
+.inputlog {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btnlog {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    background-color: #686D76;
+    width: 100%;
+    font-size: 16px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

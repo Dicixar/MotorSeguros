@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotorSeguros</title>
+    <link rel="stylesheet" href="Styles/loginAdmin.css">
+    <link rel="stylesheet" href="Styles/mainStyle.css">
+    <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo/2.png">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Seguros.html">Simulador</a></li>
+                <li><a href="Promo.html">Promoções</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
+                <li><a href="#" id="logout" onclick="Logout()">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<br>
+<br>
+<br>
+<br>
+<br>    
+    <div class="container">
+        <h2 style="text-align: center;">Utilizadores</h2>
+        <table id="users-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <ul>
+                    <li><i class="fa-brands fa-facebook"></i><a href="#"> </a><i class="fa-brands fa-twitter"></i><a
+                            href="#"> </a><i class="fa-brands fa-instagram"></i><a href="#"> </a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
+                    <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
+                    <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
+                    <li><i class="fa-regular fa-address-card"></i><a href="Contactos.html"> Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <p>Email: motorseguros@gmail.com</p>
+                <p>Telefone: +351 915 406 804</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+
+            try {
+                const response = await fetch('dados.json');
+                const usersData = await response.json();
+                loadUsers(usersData);
+            } catch (error) {
+                console.error('Erro ao carregar os dados dos utilizadores:', error);
+            }
+        });
+
+        // Função para carregar os utilizadores
+        function loadUsers(users) {
+            const usersTableBody = document.getElementById('users-table').getElementsByTagName('tbody')[0];
+            usersTableBody.innerHTML = '';
+
+            users.forEach(user => {
+                const row = usersTableBody.insertRow();
+                row.insertCell(0).innerText = user.name;
+                row.insertCell(1).innerText = user.email;
+            });
+        }
+
+        // Função de logout
+        function Logout() {
+            localStorage.removeItem('user');
+            window.location.replace('index.html');
+        }
+
+    </script>
+</body>
+
+</html>

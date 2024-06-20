@@ -4,65 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MotorSeguros</title>
+    <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/mainStyle.css">
     <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <nav>
         <div class="menu">
-          <div class="logo">
-            <a href="index.html">
-              <img src="Logo/2.png">
-            </a>
-          </div>
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Seguros.html">Simulador</a></li>
-            <li><a href="Promo.html">Promoções</a></li>
-            <li><a href="Contactos.html">Contacto</a></li>
-            <li><a href="Login.html">Login</a></li>
-          </ul>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo/2.png">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Seguros.html">Simulador</a></li>
+                <li><a href="Promo.html">Promoções</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
+                <li><a href="Login.html" id="login">Login</a></li>
+                <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
+            </ul>
         </div>
-      </nav>
+    </nav>
     <!-- Mensagem de Boas-vindas -->
     <section class="welcome-section">
-        <h1>Motor Seguros</h1>
+        <h1 id="1">Bem Vindo ao Motor Seguros</h1>
         <img src="Inicio/BemVindo.webp" alt="Ilustração de Boas-vindas" class="welcome-image">
     </section>
 
     <!-- Blocos de Comentários de Clientes -->
     <section class="testimonial-section">
+        <h2 style="align-self: center;">Os Nossos Clientes</h2>
         <div class="testimonial">
             <img src="Inicio/Daniel.jpg" alt="Daniel">
-            <p>Simpatia e preço. Já foi necessário solicitar, tanto a assistência em viagem como a quebra de vidros, e não tive qualquer problema.</p>
+            <p>Simpatia e preço. Já foi necessário solicitar, tanto a assistência em viagem como a quebra de vidros, e
+                não tive qualquer problema.</p>
             <p><br>Daniel, Mar. 2023</p>
         </div>
         <div class="testimonial">
             <img src="Inicio/isabel.jpeg" alt="Isabel">
-            <p>Pela rapidez, eficiência, responsabilidade nos trabalhos que executam. Parabéns e continuem sempre assim!</p>
+            <p>Pela rapidez, eficiência, responsabilidade nos trabalhos que executam. Parabéns e continuem sempre assim!
+            </p>
             <p><br>Isabel, Mar. 2023</p>
         </div>
         <div class="testimonial">
             <img src="Inicio/Domingos.png" alt="Domingos">
-            <p>Sou cliente MotorSeguros há algum tempo, o serviço é muito bom, tem uma aplicação que funciona muito bem em caso de acidente.</p>
+            <p>Sou cliente MotorSeguros há algum tempo, o serviço é muito bom, tem uma aplicação que funciona muito bem
+                em caso de acidente.</p>
             <p><br>Domingos, Mar. 2023</p>
         </div>
     </section>
 
     <!-- Secção de Vantagens -->
     <section class="advantages-section">
-        <h2>Veja Mais</h2>
+        <h2>Veja as Nossas Promoções</h2>
         <a href="Promo.html" class="btn">Promoções e Vantagens</a>
     </section>
-
     <footer>
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Redes Sociais</h3>
                 <ul>
-                    <li><i class="fa-brands fa-facebook"></i><a href="#">        </a><i class="fa-brands fa-twitter"></i><a href="#">        </a><i class="fa-brands fa-instagram"></i><a href="">        </a></li>
+                    <li><i class="fa-brands fa-facebook"><a href="#"></a></i></li>
+                    <li><i class="fa-brands fa-twitter"><a href="#"></a></i></li>
+                    <li><a href="https://www.instagram.com/tstardelli?igsh=MTF0bXF5OXJiN2pnNw=="><i
+                                class="fa-brands fa-instagram"></i></a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -71,7 +79,7 @@
                     <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
                     <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
                     <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
-                    <li><i class="fa-regular fa-address-card"></i><a href="Contacto.html"> Contacto</a></li>
+                    <li><i class="fa-regular fa-address-card"></i><a href="Contactos.html"> Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -83,7 +91,36 @@
         <div class="footer-bottom">
             <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
         </div>
+    </footer>
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
 
+        if (user) {
+            // Atualiza a mensagem de boas-vindas
+            document.getElementById('1').textContent = 'Bem-vindo à MotorSeguros, ' + user.name ;
+
+            // Utilizador está logado, mostra o botão de Logout
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('profile').style.display = 'block';
+
+
+        } else {
+            // Utilizador não está logado, mostra o botão de Login
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('profile').style.display = 'none';
+        }
+        function Profile() {
+            if (user.name == 'admin') {
+                window.location.replace('LoginAdmin.html');
+            }
+            else if (user) {
+                window.location.replace('LoginUser.html');
+            }
+            else {
+                window.location.replace('Login.html');
+            }
+        }
+    </script>
 </body>
 
 </html>

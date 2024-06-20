@@ -1,0 +1,97 @@
+/* Site */
+.site {
+    display: flex;
+    color: white;
+}
+
+/* Contactos */
+.contacts-section {
+    margin-top: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px 20px;
+    background-color: #f4f4f4;
+}
+
+.contact-info {
+    display: table-column;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 1em;
+    font-size: 18px;
+}
+
+.contact-info h2 {
+    margin-bottom: 15px;
+}
+
+/* Container do mapa */
+.map-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 10px auto;
+    position: relative;
+    padding-top: 56.25%; 
+}
+
+/* Iframe do mapa */
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Formulário de Mensagem - Contactos */
+.message-form-section {
+    padding: 20px 10px;
+    background-color: #EEEEEE;
+    text-align: left;
+}
+
+.message-form-section h2 {
+    margin-bottom: 1em;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+form label {
+    margin: 0.5em 0 0.25em 0;
+}
+
+form input,
+form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DAD3BE;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #686D76;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #373A40;
+}
