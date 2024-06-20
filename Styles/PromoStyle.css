@@ -66,12 +66,48 @@ img.displaySlide{
 }
 
 .container1 {
-    padding: 200px;
     position: absolute;
     display: grid;
-    top: 50%;
+    top: 80%;
     left: 50%;
-    transform: translate(-50%, 100%); /*Transform é usado para mover o objeto dentro do container, 50% top e rigth */
-    background: #f4f4f4;
-    box-shadow: 0 30px 50px #505050;
+    transform: translate(-50%, 40%); /*Transform é usado para mover o objeto dentro do container, 50% top e rigth */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; 
+}
+
+.item {
+    text-align: center;
+}
+
+.item img {
+    width: 200px; 
+    height: auto;
+    border-radius: 8px;
+}
+
+.item p {
+    margin-top: 10px; 
+    font-size: 28px; 
+    color: #333;
+}
+
+.container1 h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 100px;
+}
+
+.container1 button {
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    width: 20%;
+    border-radius: 8px;
 }
