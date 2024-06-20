@@ -1,14 +1,6 @@
-/* .container {
-    background-color: white;
-    position: relative;
-    top: -350px;
-    box-shadow: 0 30px 50px #dbdbdb;
-    margin-top: 5em;
-} */
-
 .SectionPromo {
     width: 100%;
-    height: 100vh;
+    height: 200vh; /* Tamanho da pagina */
     background-color: white;
 }
 
@@ -17,10 +9,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /*Transform é usado para mover o objeto dentro do container, 50% top e rigth */
-    width: 64em;
-    height: 38em;
     background: #f4f4f4;
     box-shadow: 0 30px 50px #505050;
+    border-radius: 8px;
 }
 
 .slider {
@@ -28,6 +19,7 @@
     width: 100%;
     height: auto;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .slider img{
@@ -55,7 +47,13 @@ img.displaySlide{
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
 }
+
+.slider button:hover {
+    background-color: hsla(0, 0%, 0%, 0.6);
+}
+
 .prev{
     left: 0;
 }
@@ -65,4 +63,15 @@ img.displaySlide{
 @keyframes fade {
     from {opacity: .5}
     to {opacity: 1}
+}
+
+.container1 {
+    padding: 200px;
+    position: absolute;
+    display: grid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%); /*Transform é usado para mover o objeto dentro do container, 50% top e rigth */
+    background: #f4f4f4;
+    box-shadow: 0 30px 50px #505050;
 }
