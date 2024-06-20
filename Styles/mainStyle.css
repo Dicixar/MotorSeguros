@@ -36,11 +36,12 @@ nav .menu {
 }
 
 .menu ul {
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
 }
 
 .menu ul li {
-    list-style: none;
     margin-left: 7px;
 }
 
@@ -63,9 +64,83 @@ nav .menu {
     color: black;
 }
 
-nav ul {
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .menu ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Site */
+.site {
     display: flex;
-    flex-direction: row;
+    color: white;
+}
+
+/* Formulário */
+.message-form-section {
+    padding: 20px 10px;
+    background-color: #EEEEEE;
+    text-align: left;
+}
+
+.message-form-section h2 {
+    margin-bottom: 1em;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1b1b1b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #333;
 }
 
 /* Footer */
@@ -120,10 +195,4 @@ footer {
 
 .footer-bottom p {
     margin: 0;
-}
-
-@media only screen and (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-    }
 }

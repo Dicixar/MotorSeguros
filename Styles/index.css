@@ -85,7 +85,7 @@
   background-color: #e9ecef;
   position: relative;
   color: #fff;
-  background: url('teste.webp') no-repeat center center/cover;
+  background: url('../teste.webp') no-repeat center center/cover;
   /* Adiciona uma sobreposição escura para melhor contraste */
   background-blend-mode: darken;
 }

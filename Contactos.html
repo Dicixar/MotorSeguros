@@ -18,7 +18,7 @@
                     <img src="Logo/2.png">
                 </a>
             </div>
-            <ul>
+            <ul id="menu-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="Seguros.html">Simulador</a></li>
                 <li><a href="Promo.html">Promoções</a></li>
@@ -26,9 +26,9 @@
                 <li><a href="Login.html" id="login">Login</a></li>
                 <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
             </ul>
-            <!-- <div class="hamburger">
-                <i class="fa fa-bars"></i>
-            </div> -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </nav>
     <section class="contacts-section">
@@ -44,13 +44,10 @@
                 <form action="#" method="post">
                     <label for="name">Nome:</label>
                     <input type="text" id="name" name="name" required>
-
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
-
                     <label for="message">Mensagem:</label>
                     <textarea id="message" name="message" rows="2" required></textarea>
-
                     <button type="submit"><i class="fa-regular fa-paper-plane"></i> Enviar</button>
                 </form>
             </section>
@@ -58,8 +55,7 @@
         <div class="map-container">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.167979678768!2d-9.158105589544974!3d38.759851054692135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933843c8532a3%3A0xd93296749817b174!2sIPLUSO%20-%20Instituto%20Polit%C3%A9cnico%20da%20Lusofonia!5e0!3m2!1spt-PT!2spt!4v1718793809163!5m2!1spt-PT!2spt"
-                width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <footer>
@@ -67,8 +63,9 @@
             <div class="footer-section">
                 <h3>Redes Sociais</h3>
                 <ul>
-                    <li><i class="fa-brands fa-facebook"></i><a href="#"> </a><i class="fa-brands fa-twitter"></i><a
-                            href="#"> </a><i class="fa-brands fa-instagram"></i><a href=""> </a></li>
+                    <li><i class="fa-brands fa-facebook"></i><a href="#"></a></li>
+                    <li><i class="fa-brands fa-twitter"></i><a href="#"></a></li>
+                    <li><i class="fa-brands fa-instagram"></i><a href="#"></a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -94,30 +91,30 @@
         const user = JSON.parse(localStorage.getItem('user'));
 
         if (user) {
-
             // Utilizador está logado, mostra o botão de Logout
             document.getElementById('login').style.display = 'none';
             document.getElementById('profile').style.display = 'block';
-
-
         } else {
             // Utilizador não está logado, mostra o botão de Login
             document.getElementById('login').style.display = 'block';
             document.getElementById('profile').style.display = 'none';
         }
+
         function Profile() {
             if (user.name == 'admin') {
                 window.location.replace('LoginAdmin.html');
-            }
-            else if (user) {
+            } else if (user) {
                 window.location.replace('LoginUser.html');
-            }
-            else {
+            } else {
                 window.location.replace('Login.html');
             }
         }
-    </script>
 
+        function toggleMenu() {
+            const menuList = document.getElementById('menu-list');
+            menuList.classList.toggle('show');
+        }
+    </script>
 </body>
 
 </html>

@@ -18,14 +18,16 @@
                     <img src="Logo/2.png">
                 </a>
             </div>
-            <ul>
+            <ul id="menu-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="Seguros.html">Simulador</a></li>
                 <li><a href="Promo.html">Promoções</a></li>
                 <li><a href="Contactos.html">Contacto</a></li>
-                <li><a href="#" id="logout" onclick="Logout()">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
-                </li>
+                <li><a href="#" id="logout" onclick="Logout()">Logout <i class="fa-solid fa-right-from-bracket"></i></a></li>
             </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </nav>
 <br>
@@ -110,6 +112,11 @@
         function Logout() {
             localStorage.removeItem('user');
             window.location.replace('index.html');
+        }
+
+        function toggleMenu() {
+            const menuList = document.getElementById('menu-list');
+            menuList.classList.toggle('show');
         }
 
     </script>

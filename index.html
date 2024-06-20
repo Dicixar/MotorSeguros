@@ -18,7 +18,7 @@
                     <img src="Logo/2.png">
                 </a>
             </div>
-            <ul>
+            <ul id="menu-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="Seguros.html">Simulador</a></li>
                 <li><a href="Promo.html">Promoções</a></li>
@@ -26,6 +26,9 @@
                 <li><a href="Login.html" id="login">Login</a></li>
                 <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
             </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </nav>
     <!-- Mensagem de Boas-vindas -->
@@ -119,6 +122,11 @@
             else {
                 window.location.replace('Login.html');
             }
+        }
+
+        function toggleMenu() {
+            const menuList = document.getElementById('menu-list');
+            menuList.classList.toggle('show');
         }
     </script>
 </body>
