@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorseguros</title>
+    <link rel="stylesheet" href="Styles/mainStyle.css">
+    <link rel="stylesheet" href="Styles/Seguros.css">
+    <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo/2.png">
+                </a>
+            </div>
+            <ul id="menu-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Seguros.html">Simulador</a></li>
+                <li><a href="Promo.html">Promoções</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
+                <li><a href="Login.html" id="login">Login</a></li>
+                <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <H1 >Nossos seguros</H1>
+    <h2 >Seguros para Motociclos</h2>
+    
+    <!-- Coloca as imagens dos seguros com seus devidos nomes -->
+    <div class="grid">    
+        <div>
+            <img src="Seguros/moto3.jpg" alt="moto.jpg" id="moto"><br>
+            Seguros obrigatórios
+        </div>
+        <div>
+            <img src="Seguros/moto4.jpg" alt="moto2.jpg" id="moto2"><br>
+            Seguro de moto de danos próprios
+        </div>
+        <div>
+            <img src="Seguros/moto5.jpg" alt="moto3.jpg" id="moto3"><br>
+            Seguros coberturas complementares
+        </div>
+        </div><br>
+    
+        <h2>Seguros para Carros</h2>
+    
+        <div class="grid2">
+            <div>
+                <img src="Seguros/carro.jpg" alt="carro.jpg" id="carro"> <br>
+                Seguro de responsabilidade civil
+            </div>
+        
+            <div>
+                <img src="Seguros/Kwid_carro.jpg" alt="kwid.jpg" id="kwid"><br>
+                Seguro de danos próprios
+            </div>
+        
+            <div>
+                <img src="Seguros/peugeot.jpg" alt="peugeot.jpg" id="peugeot"><br>
+                Seguro contra todos os riscos
+            </div>
+        </div>
+        
+
+    <!-- Inputs para o usuário realizar a simulação -->
+    <div class="simu">
+        <div style="color: white;margin-top: 0.5rem;">
+            Nome<br>
+            <input type="text" id="nome"><br>
+            Número de contribuinte<br>
+            <input type="text" id="contribuinte"><br>
+            Matrícula do veículo<br>
+            <input type="text" id="matricula"><br>
+            Email<br>
+            <input type="text" id="email"><br>
+        </div>
+        <!-- Cria um div onde ficará a simulação da placa -->
+        <div class="inputPlaca">
+            <!-- Seleciona o tipo de veículo que o utilizador possua -->
+            <div>
+                <button class="opcao unselected" id="carButton" data-value="automovel">Automóvel</button>
+                <button class="opcao unselected" id="motorcycleButton" data-value="motociclo">Motociclo</button>
+            </div><br>
+            <!-- Inputs para preencher a placa do utilizador -->
+            <div class="placa">
+                <div class="LE">P</div>
+                <input type="text" maxlength="2" placeholder="x" id="placa1">
+                <span>-</span>
+                <input type="text" maxlength="2" placeholder="x" id="placa2">
+                <span>-</span>
+                <input type="text" maxlength="2" placeholder="x" id="placa3">
+                <!-- Faz com que, quando aperte o butão, apague os inputs colocados -->
+                <button id="simular" onclick="apagarSimu()">SIMULAR</button>
+            </div>
+            <br>
+        </div>
+        <div id="nsei">
+            <a href="" style="color: white;">Não sei a matrícula</a><br>
+            <a href="" style="color: white;">Recuperar simulação</a>  
+        </div>
+</div>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <ul>
+                        <li><i class="fa-brands fa-facebook"></i><a href="#"> </a><i class="fa-brands fa-twitter"></i><a
+                                href="#"> </a><i class="fa-brands fa-instagram"></i><a href=""> </a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
+                        <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
+                        <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
+                        <li><i class="fa-regular fa-address-card"></i><a href="Contactos.html"> Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contactos</h3>
+                    <p>Email: motorseguros@gmail.com</p>
+                    <p>Telefone: +351 915 406 804</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
+            </div>
+
+            <script>
+                // Seleciona todos os butões da classe "opcao"
+                const buttons = document.querySelectorAll('.opcao');
+
+                function selectButton(selectedButton) {
+                    // Remove a classe 'selected' e adiciona a classe 'unselected'
+                    buttons.forEach(button => {
+                        button.classList.remove('selected');
+                        button.classList.add('unselected');
+                    });
+                    // Remove a classe 'unselected' e adiciona a classe 'selected' para o botão clicado
+                    selectedButton.classList.remove('unselected');
+                    selectedButton.classList.add('selected');
+                }
+                //Quando o botão for clicado, ativa a função selectButton
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        selectButton(button);
+                    });
+                });
+
+                const user = JSON.parse(localStorage.getItem('user'));
+
+                if (user) {
+                    // Utilizador está logado, mostra o botão de Logout
+                    document.getElementById('login').style.display = 'none';
+                    document.getElementById('profile').style.display = 'block';
+                } else {
+                    // Utilizador não está logado, mostra o botão de Login
+                    document.getElementById('login').style.display = 'block';
+                    document.getElementById('profile').style.display = 'none';
+                }
+
+                function Profile() {
+                    if (user.name == 'admin') {
+                        window.location.replace('LoginAdmin.html');
+                    } else if (user) {
+                        window.location.replace('LoginUser.html');
+                    } else {
+                        window.location.replace('Login.html');
+                    }
+                }
+
+                function toggleMenu() {
+                    const menuList = document.getElementById('menu-list');
+                    menuList.classList.toggle('show');
+                }
+                // Apaga as informações colocadas nos inputs
+                function apagarSimu() {
+                    alert('Email da simulação enviado');
+                    document.getElementById('nome').value = '';
+                    document.getElementById('contribuinte').value = '';
+                    document.getElementById('matricula').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('placa1').value = '';
+                    document.getElementById('placa2').value = '';
+                    document.getElementById('placa3').value = '';
+
+                }
+
+
+
+            </script>
+
+</body>
+
+</html>
