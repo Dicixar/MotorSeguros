@@ -25,6 +25,8 @@
         </div>
     </nav>
     </section>
+
+    <!-- Login -->
     <div class="main-login">
         <h3>Introduza os seus dados</h3>
         <form action="">
@@ -42,6 +44,7 @@
         </form>
         <span class="form__span" id="status"></span>
     </div>
+    <!-- /Login -->
     <script>
         const emailInput = document.getElementById('email'),
             nameInput = document.getElementById('nome'),
@@ -49,7 +52,7 @@
             loginBtn = document.getElementById('login'),
             statusSpan = document.getElementById('status')
     
-        // Evento de click no botão de login
+        // Cria um evento de click no botão de login
         loginBtn.addEventListener('click', (e) => {
             e.preventDefault()
 
