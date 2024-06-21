@@ -118,7 +118,7 @@ img.displaySlide {
 }
 
 .container2 img {
+    width: 800px;
     height: auto;
-    width: auto;
     border-radius: 8px;
 }
