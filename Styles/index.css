@@ -24,33 +24,9 @@
   border-radius: 10px;
 }
 
-/* Secção de Vantagens - Inicio */
-.advantages-section {
-  text-align: center;
-  padding: 30px 20px;
-  background-color: #e9ecef;
-}
-
-.advantages-section h2 {
-  margin-bottom: 20px;
-  font-size: 28px;
-}
-
-.advantages-section .btn {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.advantages-section .btn:hover {
-  background-color: #0056b3;
-}
 
 /* Blocos de Comentários de Clientes - Inicio */
-.testimonial-section {
+.comment-section {
   display: flex;
   justify-content: space-around;
   padding: 30px 20px;
@@ -59,22 +35,22 @@
   flex-wrap: wrap; /* Permite que os itens se organizem em múltiplas linhas em telas menores */
 }
 
-.testimonial {
+.comment {
   text-align: center;
   max-width: 200px;
   flex: 1;
   margin: 10px;
 }
 
-.testimonial img {
+.comment img {
   width: 10em;
   height: 10em;
   border-radius: 50%;
-  object-fit: cover; /* Assegura que a imagem preencha o container, mantendo a proporção */
+  object-fit: cover;
   margin-bottom: 10px;
 }
 
-.testimonial p {
+.comment p {
   font-size: 16px;
 }
 

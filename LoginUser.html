@@ -43,13 +43,9 @@
                     <label for="modelo">Seguro:</label>
                     <input type="text" id="seguro" name="seguro" value="Seguro de Danos Próprios" readonly>
                     <label for="cobertura">Cobertura:</label>
-                    <input type="text" id="cobertura" name="cobertura" value="Danos causados por acidentes de trânsito"
-                        readonly>
+                    <input type="text" id="cobertura" name="cobertura" value="Danos causados por acidentes de trânsito"readonly>
                     <label for="preco">Preço:</label>
                     <input type="text" id="preco" name="preco" value="100€/Ano" readonly>
-
-
-
                 </form>
             </section>
         </div>
@@ -85,6 +81,7 @@
             // Recupera os dados do localStorage
             const user = JSON.parse(localStorage.getItem('user'));
 
+            // Se houver dados do utilizador, preenche os campos no formulário
             if (user) {
                 document.getElementById('nome').value = user.name;
                 document.getElementById('email').value = user.email;

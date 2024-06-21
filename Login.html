@@ -47,9 +47,9 @@
             nameInput = document.getElementById('nome'),
             passInput = document.getElementById('password'),
             loginBtn = document.getElementById('login'),
-            signupBtn = document.getElementById('signup'),
             statusSpan = document.getElementById('status')
-
+    
+        // Evento de click no botão de login
         loginBtn.addEventListener('click', (e) => {
             e.preventDefault()
 
@@ -59,6 +59,7 @@
         async function Entrar(emailForm, passForm) {
             const users = await getData('./dados.json')
 
+            // Verifica se o email e a password estão corretos
             users.forEach(user => {
                 if (emailForm == user.email && passForm == user.password) {
                     console.log('Login Realizado')
@@ -68,12 +69,14 @@
                     }
                     else
                         window.location.replace('LoginUser.html')
-                } else {
+                } else 
+                {
                     statusSpan.textContent = 'Email ou Senha incorretos'
                 }
             });
         }
 
+        // Função para obter os dados dos utilizadores
         async function getData(src) {
             const response = await fetch(src)
             const responseJson = await response.json()

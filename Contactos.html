@@ -53,6 +53,7 @@
             </section>
         </div>
         <div class="map-container">
+            <!-- Iframe para mostrar o Mapa -->
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.167979678768!2d-9.158105589544974!3d38.759851054692135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933843c8532a3%3A0xd93296749817b174!2sIPLUSO%20-%20Instituto%20Polit%C3%A9cnico%20da%20Lusofonia!5e0!3m2!1spt-PT!2spt!4v1718793809163!5m2!1spt-PT!2spt"
                 width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -88,10 +89,11 @@
         </div>
     </footer>
     <script>
+        // Vai buscar os dados do Utilizador guardados no LocalStorage
         const user = JSON.parse(localStorage.getItem('user'));
 
         if (user) {
-            // Utilizador está logado, mostra o botão de Logout
+            // Utilizador está logado, mostra o Icon do Perfil
             document.getElementById('login').style.display = 'none';
             document.getElementById('profile').style.display = '';
         } else {
@@ -100,6 +102,7 @@
             document.getElementById('profile').style.display = 'none';
         }
 
+        // Redireciona o utilizador para a página destinada
         function Profile() {
             if (user.name == 'admin') {
                 window.location.replace('LoginAdmin.html');
@@ -110,6 +113,7 @@
             }
         }
 
+        // Função para mostrar/esconder o menu
         function toggleMenu() {
             const menuList = document.getElementById('menu-list');
             menuList.classList.toggle('show');
