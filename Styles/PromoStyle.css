@@ -122,3 +122,9 @@ img.displaySlide {
     height: auto;
     border-radius: 8px;
 }
+
+.item1 {
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+}
