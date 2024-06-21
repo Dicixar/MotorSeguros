@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/mainStyle.css">
+    <link rel="stylesheet" href="Styles/PromoStyle.css">
+    <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
+    <title>As Melhores Promoções</title>
+</head>
+<body>
+  <!-- Menu -->
+  <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo/2.png">
+                </a>
+            </div>
+            <ul id="menu-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Seguros.html">Simulador</a></li>
+                <li><a href="Promo.html">Promoções</a></li>
+                <li><a href="Contactos.html">Contacto</a></li>
+                <li><a href="Login.html" id="login">Login</a></li>
+                <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+  <!-- Menu -->
+
+    <div class="container">
+
+        <div class="slider">
+
+          <div class="slides">
+            <img src="/Promocoes/img1.jpg" alt="" class="slide">
+            <img src="/Promocoes/img2.jpg" alt="" class="slide">
+            <img src="/Promocoes/img3.jpg" alt="" class="slide">
+          </div>
+          <button class="prev" onclick="prevSlide()">&#10094</button>
+          <button class="next" onclick="nextSlide()">&#10095</button>
+
+        </div>
+
+    </div>
+
+  <div class="container1">
+    <h1>Todas as nossas Vantagens </h1>
+
+    <div class="items">
+
+      <div class="item">
+        <img src="/Promocoes/asistencia.jpg" alt="">
+        <p>Assistencia 24h</p>
+      </div>
+      <div class="item">
+        <img src="/Promocoes/protecao financeira.webp" alt="">
+        <p>Proteção financeira</p>
+      </div>
+      <div class="item">
+        <img src="/Promocoes/responsbilidade civil.jpg" alt="">
+        <p>responsbilidade civil</p>
+      </div>
+      <div class="item">
+        <img src="/Promocoes/desconto1.png" alt="">
+        <p>mais descontos</p>
+      </div>
+
+    </div>
+
+    <button>Converse Connosco</button>
+  </div>
+
+  <div class="container2">
+    <div class="items">
+      <div class="item">
+        <img src="/Promocoes/Exemplo de tabela de comparação de descontos.png" alt="">
+      </div>
+    </div>
+    <button>Converse Connosco</button>
+  </div>
+
+
+
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="footer-container">
+          <div class="footer-section">
+              <h3>Redes Sociais</h3>
+              <ul>
+                  <li><i class="fa-brands fa-facebook"></i><a href="#">        </a><i class="fa-brands fa-twitter"></i><a href="#">        </a><i class="fa-brands fa-instagram"></i><a href="">        </a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h3>Links</h3>
+              <ul>
+                  <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
+                  <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
+                  <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
+                  <li><i class="fa-regular fa-address-card"></i><a href="Contacto.html"> Contacto</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h3>Contactos</h3>
+              <p>Email: motorseguros@gmail.com</p>
+              <p>Telefone: +351 915 406 804</p>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
+      </div>
+  </footer>
+  <!-- Rodapé -->
+   
+  <script src="./Javascript/Promo.js"></script>
+
+</body>
+</html>

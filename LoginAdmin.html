@@ -85,8 +85,8 @@
     </footer>
 
     <script>
+        // Carregar os utilizadores
         document.addEventListener('DOMContentLoaded', async function () {
-
             try {
                 const response = await fetch('dados.json');
                 const usersData = await response.json();
@@ -114,6 +114,7 @@
             window.location.replace('index.html');
         }
 
+        // Função para mostrar/esconder o menu
         function toggleMenu() {
             const menuList = document.getElementById('menu-list');
             menuList.classList.toggle('show');

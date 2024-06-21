@@ -1,0 +1,124 @@
+.container {
+    margin: auto;
+    background: #f4f4f4;
+    box-shadow: 0 30px 50px #505050;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin-top: 200px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slider img {
+    width: 100%;
+    display: none;
+}
+
+img.displaySlide {
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.slides {
+    object-fit: cover;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: hsla(0, 0%, 0%, 0.2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.slider button:hover {
+    background-color: hsla(0, 0%, 0%, 0.6);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 1}
+}
+
+.container1, .container2 {
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 1200px; 
+    text-align: center;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap; 
+}
+
+.item {
+    text-align: center;
+}
+
+.item img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 28px;
+    color: #333;
+}
+
+.container1 h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.container1 button {
+    display: block;
+    margin: 40px auto;
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container2 button {
+    display: block;
+    margin: 40px auto;
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container2 img {
+    height: auto;
+    width: auto;
+    border-radius: 8px;
+}

@@ -170,6 +170,7 @@
                     document.getElementById('profile').style.display = 'none';
                 }
 
+                // Função para redirecionar o utilizador para a página correta
                 function Profile() {
                     if (user.name == 'admin') {
                         window.location.replace('LoginAdmin.html');
@@ -180,6 +181,7 @@
                     }
                 }
 
+                // Função para mostrar/esconder o menu
                 function toggleMenu() {
                     const menuList = document.getElementById('menu-list');
                     menuList.classList.toggle('show');
@@ -196,8 +198,6 @@
                     document.getElementById('placa3').value = '';
 
                 }
-
-
 
             </script>
 
