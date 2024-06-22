@@ -1,3 +1,4 @@
+/* Secção Corrosel*/
 .container {
     margin: auto;
     background: #f4f4f4;
@@ -18,6 +19,11 @@
 .slider img {
     width: 100%;
     display: none;
+}
+
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 1}
 }
 
 img.displaySlide {
@@ -43,10 +49,6 @@ img.displaySlide {
     border-radius: 4px;
 }
 
-.slider button:hover {
-    background-color: hsla(0, 0%, 0%, 0.6);
-}
-
 .prev {
     left: 0;
 }
@@ -54,12 +56,9 @@ img.displaySlide {
 .next {
     right: 0;
 }
+/* Secção Corrosel*/
 
-@keyframes fade {
-    from {opacity: .5}
-    to {opacity: 1}
-}
-
+/* Secção das vantagens*/
 .container1 {
     margin: 50px auto;
     padding: 20px;
@@ -76,10 +75,6 @@ img.displaySlide {
     flex-wrap: wrap; 
 }
 
-.item {
-    text-align: center;
-}
-
 .item img {
     width: 200px;
     height: auto;
@@ -91,7 +86,9 @@ img.displaySlide {
     font-size: 28px;
     color: #333;
 }
+/* Secção das vantagens*/
 
+/* Secção dos descontos*/
 .descontos {
     display: flex;
     justify-content: center;
@@ -115,7 +112,9 @@ img.displaySlide {
     font-weight: bold;
     color: #000;
 }
+/* Secção dos descontos*/
 
+/* Secção dos botões*/
 button {
     margin: 10px auto;
     padding: 20px;
@@ -125,4 +124,10 @@ button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border: none;
 }
+
+button:hover {
+    opacity: 60%;
+}
+/* Secção dos botões*/
