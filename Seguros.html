@@ -188,17 +188,23 @@
             }
 
             function salvarDados() {
-                const nome = document.getElementById('nome').value;
-                const contribuinte = document.getElementById('contribuinte').value;
-                const email = document.getElementById('email').value;
-                const placa1 = document.getElementById('placa1').value;
-                const placa2 = document.getElementById('placa2').value;
-                const placa3 = document.getElementById('placa3').value;
-                const fullPlaca = `${placa1}-${placa2}-${placa3}`;
-                const tipo = document.querySelector('.selected').dataset.value;
-                localStorage.setItem('user', JSON.stringify({ name: user.name, email: email, matricula: fullPlaca, contribuinte: contribuinte, tipo: tipo }));
+                if (user) {
+                    const nome = document.getElementById('nome').value;
+                    const contribuinte = document.getElementById('contribuinte').value;
+                    const email = document.getElementById('email').value;
+                    const placa1 = document.getElementById('placa1').value;
+                    const placa2 = document.getElementById('placa2').value;
+                    const placa3 = document.getElementById('placa3').value;
+                    const fullPlaca = `${placa1}-${placa2}-${placa3}`;
+                    const tipo = document.querySelector('.selected').dataset.value;
+                    localStorage.setItem('user', JSON.stringify({ name: user.name, email: email, matricula: fullPlaca, contribuinte: contribuinte, tipo: tipo }));
 
-                alert('Dados da simulação salvos');
+                    alert('Dados da simulação salvos');
+                }
+                else {
+                    alert('Faça login para salvar os dados da simulação');
+                }
+
             }
 
             function toggleMenu() {
