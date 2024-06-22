@@ -1,3 +1,4 @@
+/* Secção Corrosel*/
 .container {
     margin: auto;
     background: #f4f4f4;
@@ -18,6 +19,11 @@
 .slider img {
     width: 100%;
     display: none;
+}
+
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 1}
 }
 
 img.displaySlide {
@@ -43,10 +49,6 @@ img.displaySlide {
     border-radius: 4px;
 }
 
-.slider button:hover {
-    background-color: hsla(0, 0%, 0%, 0.6);
-}
-
 .prev {
     left: 0;
 }
@@ -54,14 +56,11 @@ img.displaySlide {
 .next {
     right: 0;
 }
+/* Secção Corrosel*/
 
-@keyframes fade {
-    from {opacity: .5}
-    to {opacity: 1}
-}
-
-.container1, .container2 {
-    margin: 100px auto;
+/* Secção das vantagens*/
+.container1 {
+    margin: 50px auto;
     padding: 20px;
     border-radius: 8px;
     max-width: 1200px; 
@@ -76,10 +75,6 @@ img.displaySlide {
     flex-wrap: wrap; 
 }
 
-.item {
-    text-align: center;
-}
-
 .item img {
     width: 200px;
     height: auto;
@@ -91,40 +86,48 @@ img.displaySlide {
     font-size: 28px;
     color: #333;
 }
+/* Secção das vantagens*/
 
-.container1 h1 {
-    font-size: 48px;
-    margin-bottom: 40px;
-}
-
-.container1 button {
-    display: block;
-    margin: 40px auto;
-    height: 50px;
-    width: 200px;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.container2 button {
-    display: block;
-    margin: 40px auto;
-    height: 50px;
-    width: 200px;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.container2 img {
-    width: 800px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.item1 {
-    justify-content: center;
+/* Secção dos descontos*/
+.descontos {
     display: flex;
-    background-color: transparent;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
 }
+.desconto {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.desconto p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+.desconto .per {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+/* Secção dos descontos*/
+
+/* Secção dos botões*/
+button {
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    opacity: 60%;
+}
+/* Secção dos botões*/
