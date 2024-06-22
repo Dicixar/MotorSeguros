@@ -30,11 +30,11 @@
             </div>
         </div>
     </nav>
-<br>
-<br>
-<br>
-<br>
-<br>    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <h2 style="text-align: center;">Utilizadores</h2>
         <table id="users-table">
@@ -42,19 +42,16 @@
                 <tr>
                     <th>Nome</th>
                     <th>Email</th>
+                    <th>Matricula</th>
+                    <th>Contribuinte</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-
-                </tr>
-                <tr>
-
-                </tr>
+                <!-- Aqui serão adicionadas as linhas dos utilizadores -->
             </tbody>
         </table>
     </div>
-    
+
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -85,19 +82,14 @@
     </footer>
 
     <script>
-        // Carregar os utilizadores
-        document.addEventListener('DOMContentLoaded', async function () {
-            try {
-                const response = await fetch('dados.json');
-                const usersData = await response.json();
-                loadUsers(usersData);
-            } catch (error) {
-                console.error('Erro ao carregar os dados dos utilizadores:', error);
-            }
+        // Carregar os utilizadores do localStorage ao carregar a página
+        document.addEventListener('DOMContentLoaded', function () {
+            loadUsersFromLocalStorage();
         });
 
-        // Função para carregar os utilizadores
-        function loadUsers(users) {
+        // Função para carregar os utilizadores do localStorage
+        function loadUsersFromLocalStorage() {
+            const users = getUsersFromLocalStorage();
             const usersTableBody = document.getElementById('users-table').getElementsByTagName('tbody')[0];
             usersTableBody.innerHTML = '';
 
@@ -105,7 +97,14 @@
                 const row = usersTableBody.insertRow();
                 row.insertCell(0).innerText = user.name;
                 row.insertCell(1).innerText = user.email;
+                row.insertCell(2).innerText = user.matricula;
+                row.insertCell(3).innerText = user.contribuinte;
             });
+        }
+
+        // Função para obter os utilizadores do localStorage
+        function getUsersFromLocalStorage() {
+            return JSON.parse(localStorage.getItem('users')) || [];
         }
 
         // Função de logout

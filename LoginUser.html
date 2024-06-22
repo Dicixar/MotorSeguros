@@ -40,12 +40,13 @@
                     <input type="text" id="nome" name="nome" readonly>
                     <label for="email">Email:</label>
                     <input type="text" id="email" name="email" readonly>
-                    <label for="modelo">Seguro:</label>
-                    <input type="text" id="seguro" name="seguro" value="Seguro de Danos Próprios" readonly>
-                    <label for="cobertura">Cobertura:</label>
-                    <input type="text" id="cobertura" name="cobertura" value="Danos causados por acidentes de trânsito"readonly>
-                    <label for="preco">Preço:</label>
-                    <input type="text" id="preco" name="preco" value="100€/Ano" readonly>
+                    <label for="modelo">Contribuinte:</label>
+                    <input type="text" id="cont" name="cont" value="" readonly>
+                    <label for="cobertura">Matricula:</label>
+                    <input type="text" id="mat" name="mat" value=""
+                        readonly>
+                    <label for="preco">Tipo:</label>
+                    <input type="text" id="tipo" name="tipo" value="" readonly>
                 </form>
             </section>
         </div>
@@ -85,6 +86,9 @@
             if (user) {
                 document.getElementById('nome').value = user.name;
                 document.getElementById('email').value = user.email;
+                document.getElementById('cont').value = user.contribuinte;
+                document.getElementById('mat').value = user.matricula;
+                document.getElementById('tipo').value = user.tipo;
             } else {
                 // Se não houver dados do utilizador, redireciona para a página de login
                 window.location.replace('Login.html');

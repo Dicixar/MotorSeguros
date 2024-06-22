@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt">
 <head>
+    <meta charset="UTF-8">
     <title>MotorSeguros</title>
     <link rel="stylesheet" href="Styles/loginStyle.css">
     <link rel="stylesheet" href="Styles/mainStyle.css">
 </head>
-
 <body class="body_login">
     <nav>
         <div class="menu">
             <div class="logo">
                 <a href="index.html">
-                    <img src="Logo/2.png">
+                    <img src="Logo/2.png" alt="Logo MotorSeguros">
                 </a>
             </div>
             <ul>
@@ -24,12 +23,14 @@
             </ul>
         </div>
     </nav>
-    </section>
 
     <!-- Login -->
     <div class="main-login">
         <h3>Introduza os seus dados</h3>
-        <form action="">
+        <form>
+            <label class="lblog" for="Nome" id="nomelbl" style="display: none;">Nome:</label>
+            <input class="inputlog" style="display: none;" type="text" id="nome" name="Nome"
+                placeholder="Introduza o Nome" required>
 
             <label class="lblog" for="first">Email:</label>
             <input class="inputlog" type="text" id="email" name="first" placeholder="Introduza o Email" required>
@@ -39,54 +40,121 @@
                 required>
 
             <div class="wrap">
-                <button type="submit" id="login" class="btnlog" onclick="Entrar()">Login</button>
+                <button type="button" id="login" class="btnlog">Login</button>
+                <button type="button" id="signup" class="btnlog" style="display: none;">Signup</button>
             </div>
         </form>
+        <p id="log1">Não tem conta? <a href="#" onclick="Signup()">Signup</a></p>
+        <p style="display: none;" id="log2">Já tem conta? <a href="#" onclick="Login()">Login</a></p>
         <span class="form__span" id="status"></span>
     </div>
     <!-- /Login -->
+
     <script>
-        const emailInput = document.getElementById('email'),
-            nameInput = document.getElementById('nome'),
-            passInput = document.getElementById('password'),
-            loginBtn = document.getElementById('login'),
-            statusSpan = document.getElementById('status')
-    
-        // Cria um evento de click no botão de login
+        const emailInput = document.getElementById('email');
+        const nameInput = document.getElementById('nome');
+        const passInput = document.getElementById('password');
+        const loginBtn = document.getElementById('login');
+        const signupBtn = document.getElementById('signup');
+        const statusSpan = document.getElementById('status');
+
+        // Carregar os dados do JSON para o LocalStorage ao carregar a página
+        window.addEventListener('DOMContentLoaded', async () => {
+            const users = await getUsersFromJson();
+            localStorage.setItem('users', JSON.stringify(users));
+        });
+
+        function Signup() {
+            document.getElementById('log1').style.display = 'none';
+            document.getElementById('log2').style.display = '';
+            document.getElementById('nomelbl').style.display = '';
+            nameInput.style.display = '';
+            signupBtn.style.display = '';
+            loginBtn.style.display = 'none';
+        }
+
+        function Login() {
+            document.getElementById('log1').style.display = '';
+            document.getElementById('log2').style.display = 'none';
+            document.getElementById('nomelbl').style.display = 'none';
+            nameInput.style.display = 'none';
+            signupBtn.style.display = 'none';
+            loginBtn.style.display = 'block';
+        }
+
+        // Evento para o botão de login
         loginBtn.addEventListener('click', (e) => {
-            e.preventDefault()
+            e.preventDefault();
+            Entrar(emailInput.value, passInput.value);
+        });
 
-            Entrar(emailInput.value, passInput.value)
-        })
+        // Evento para o botão de signup
+        signupBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            Criar(nameInput.value, emailInput.value, passInput.value);
+        });
 
-        async function Entrar(emailForm, passForm) {
-            const users = await getData('./dados.json')
+        function Entrar(emailForm, passForm) {
+            const users = getUsersFromLocalStorage();
 
-            // Verifica se o email e a password estão corretos
-            users.forEach(user => {
-                if (emailForm == user.email && passForm == user.password) {
-                    console.log('Login Realizado')
-                    localStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email, role: user.role }));
-                    if (user.name == 'admin') {
-                        window.location.replace('LoginAdmin.html')
-                    }
-                    else
-                        window.location.replace('LoginUser.html')
-                } else 
-                {
-                    statusSpan.textContent = 'Email ou Senha incorretos'
+            // Encontra o utilizador correspondente ao email e password
+            const user = users.find(user => user.email === emailForm && user.password === passForm);
+
+            if (user) {
+                console.log('Login realizado:', user);
+                localStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email, matricula: user.matricula, contribuinte: user.contribuinte, tipo: user.tipo}));
+
+                if (user.name === 'admin') {
+                    window.location.replace('LoginAdmin.html');
+                } else {
+                    window.location.replace('LoginUser.html');
                 }
-            });
+            } else {
+                statusSpan.textContent = 'Email ou Senha incorretos';
+            }
         }
 
-        // Função para obter os dados dos utilizadores
-        async function getData(src) {
-            const response = await fetch(src)
-            const responseJson = await response.json()
-            return responseJson
+        // Função para criar um novo utilizador
+        function Criar(nameForm, emailForm, passForm) {
+            const users = getUsersFromLocalStorage();
+
+            const novoUtilizador = {
+                name: nameForm,
+                email: emailForm,
+                password: passForm,
+                matricula: '00-00-00',
+                contribuinte: ''
+            };
+
+            // Verifica se o utilizador já existe
+            const userExists = users.some(user => user.email === novoUtilizador.email);
+
+            if (userExists) {
+                statusSpan.textContent = 'Este email já está registado';
+            } else {
+                // Adiciona o novo utilizador aos dados existentes
+                users.push(novoUtilizador);
+
+                // Atualiza os dados no localStorage
+                localStorage.setItem('users', JSON.stringify(users));
+
+                console.log('Novo utilizador criado:', novoUtilizador);
+                statusSpan.textContent = 'Utilizador criado com sucesso';
+            }
         }
 
+        // Função para obter os dados dos utilizadores do localStorage
+        function getUsersFromLocalStorage() {
+            return JSON.parse(localStorage.getItem('users')) || [];
+        }
+
+        // Função para obter os dados do JSON (simulação)
+        async function getUsersFromJson() {
+            // Simulação de carregamento dos dados de um arquivo JSON
+            const response = await fetch('./dados.json');
+            const data = await response.json();
+            return data;
+        }
     </script>
 </body>
-
 </html>

@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motorseguros</title>
-    <link rel="stylesheet" href="Styles/mainStyle.css">
+    <title>Document</title>
     <link rel="stylesheet" href="Styles/Seguros.css">
     <script src="https://kit.fontawesome.com/5384e9fab4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
     <nav>
         <div class="menu">
             <div class="logo">
@@ -25,51 +23,52 @@
                 <li><a href="Promo.html">Promoções</a></li>
                 <li><a href="Contactos.html">Contacto</a></li>
                 <li><a href="Login.html" id="login">Login</a></li>
-                <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i class="fa-regular fa-user"></i></a></li>
+                <li><a href="#" id="profile" style="display:none;" onclick="Profile()"><i
+                            class="fa-regular fa-user"></i></a></li>
             </ul>
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </nav>
-    <H1 >Nossos seguros</H1>
-    <h2 >Seguros para Motociclos</h2>
-    
+    <H1>Nossos seguros</H1>
+    <h2>Seguros para Motociclos</h2>
+
     <!-- Coloca as imagens dos seguros com seus devidos nomes -->
-    <div class="grid">    
+    <div class="grid">
         <div>
             <img src="Seguros/moto3.jpg" alt="moto.jpg" id="moto"><br>
             Seguros obrigatórios
         </div>
         <div>
             <img src="Seguros/moto4.jpg" alt="moto2.jpg" id="moto2"><br>
-            Seguro de moto de danos próprios
+            Seguro de danos próprios
         </div>
         <div>
             <img src="Seguros/moto5.jpg" alt="moto3.jpg" id="moto3"><br>
-            Seguros coberturas complementares
+            Coberturas complementares
         </div>
-        </div><br>
-    
-        <h2>Seguros para Carros</h2>
-    
-        <div class="grid2">
-            <div>
-                <img src="Seguros/carro.jpg" alt="carro.jpg" id="carro"> <br>
-                Seguro de responsabilidade civil
-            </div>
-        
-            <div>
-                <img src="Seguros/Kwid_carro.jpg" alt="kwid.jpg" id="kwid"><br>
-                Seguro de danos próprios
-            </div>
-        
-            <div>
-                <img src="Seguros/peugeot.jpg" alt="peugeot.jpg" id="peugeot"><br>
-                Seguro contra todos os riscos
-            </div>
+    </div><br>
+
+    <h2>Seguros para Carros</h2>
+
+    <div class="grid2">
+        <div>
+            <img src="Seguros/carro.jpg" alt="carro.jpg" id="carro"> <br>
+            Seguro de responsabilidade civil
         </div>
-        
+
+        <div>
+            <img src="Seguros/peugeot.jpg" alt="peugeot.jpg" id="peugeot"><br>
+            Seguro de danos próprios
+        </div>
+
+        <div>
+            <img src="Seguros/Kwid_carro.jpg" alt="kwid.jpg" id="kwid"><br>
+            Seguro contra todos os riscos
+        </div>
+    </div>
+
 
     <!-- Inputs para o usuário realizar a simulação -->
     <div class="simu">
@@ -77,18 +76,16 @@
             Nome<br>
             <input type="text" id="nome"><br>
             Número de contribuinte<br>
-            <input type="text" id="contribuinte"><br>
-            Matrícula do veículo<br>
-            <input type="text" id="matricula"><br>
+            <input type="text" id="contribuinte" maxlength="9"><br>
             Email<br>
-            <input type="text" id="email"><br>
+            <input type="email" id="email"><br>
         </div>
         <!-- Cria um div onde ficará a simulação da placa -->
         <div class="inputPlaca">
             <!-- Seleciona o tipo de veículo que o utilizador possua -->
             <div>
-                <button class="opcao unselected" id="carButton" data-value="automovel">Automóvel</button>
-                <button class="opcao unselected" id="motorcycleButton" data-value="motociclo">Motociclo</button>
+                <button class="opcao unselected" class="opcao" id="car" data-value="automovel">Automóvel</button>
+                <button class="opcao unselected" class="opcao" data-value="motociclo">Motociclo</button>
             </div><br>
             <!-- Inputs para preencher a placa do utilizador -->
             <div class="placa">
@@ -99,107 +96,155 @@
                 <span>-</span>
                 <input type="text" maxlength="2" placeholder="x" id="placa3">
                 <!-- Faz com que, quando aperte o butão, apague os inputs colocados -->
-                <button id="simular" onclick="apagarSimu()">SIMULAR</button>
+                <button id="simular" onclick="salvarDados()">SIMULAR</button>
             </div>
             <br>
         </div>
         <div id="nsei">
             <a href="" style="color: white;">Não sei a matrícula</a><br>
-            <a href="" style="color: white;">Recuperar simulação</a>  
+            <a href="#" onclick="recuperarSimulacao()" style="color: white;">Recuperar simulação</a>
         </div>
-</div>
 
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>Redes Sociais</h3>
-                    <ul>
-                        <li><i class="fa-brands fa-facebook"></i><a href="#"> </a><i class="fa-brands fa-twitter"></i><a
-                                href="#"> </a><i class="fa-brands fa-instagram"></i><a href=""> </a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Links</h3>
-                    <ul>
-                        <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
-                        <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
-                        <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
-                        <li><i class="fa-regular fa-address-card"></i><a href="Contactos.html"> Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contactos</h3>
-                    <p>Email: motorseguros@gmail.com</p>
-                    <p>Telefone: +351 915 406 804</p>
-                </div>
+
+
+
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <ul>
+                    <li><i class="fa-brands fa-facebook"></i><a href="#"> </a><i class="fa-brands fa-twitter"></i><a
+                            href="#"> </a><i class="fa-brands fa-instagram"></i><a href=""> </a></li>
+                </ul>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
+            <div class="footer-section">
+                <h3>Links</h3>
+                <ul>
+                    <li><i class="fa-solid fa-house"></i><a href="index.html"> Início</a></li>
+                    <li><i class="fa-solid fa-car-burst"></i><a href="Seguros.html"> Seguros</a></li>
+                    <li><i class="fa-solid fa-tags"></i><a href="Promo.html"> Promoções</a></li>
+                    <li><i class="fa-regular fa-address-card"></i><a href="Contacto.html"> Contacto</a></li>
+                </ul>
             </div>
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <p>Email: motorseguros@gmail.com</p>
+                <p>Telefone: +351 915 406 804</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
+        </div>
 
-            <script>
-                // Seleciona todos os butões da classe "opcao"
-                const buttons = document.querySelectorAll('.opcao');
+        <script>
+            // Seleciona todos os botões da classe "opcao"
+            const buttons = document.querySelectorAll('.opcao');
 
-                function selectButton(selectedButton) {
-                    // Remove a classe 'selected' e adiciona a classe 'unselected'
-                    buttons.forEach(button => {
-                        button.classList.remove('selected');
-                        button.classList.add('unselected');
-                    });
-                    // Remove a classe 'unselected' e adiciona a classe 'selected' para o botão clicado
-                    selectedButton.classList.remove('unselected');
-                    selectedButton.classList.add('selected');
-                }
-                //Quando o botão for clicado, ativa a função selectButton
+            function selectButton(selectedButton) {
+                // Remove a classe 'selected' e adiciona a classe 'unselected' a todos os botões
                 buttons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        selectButton(button);
-                    });
+                    button.classList.remove('selected');
+                    button.classList.add('unselected');
                 });
 
-                const user = JSON.parse(localStorage.getItem('user'));
+                // Adiciona a classe 'selected' e remove a classe 'unselected' no botão selecionado
+                selectedButton.classList.add('selected');
+                selectedButton.classList.remove('unselected');
 
-                if (user) {
-                    // Utilizador está logado, mostra o botão de Logout
-                    document.getElementById('login').style.display = 'none';
-                    document.getElementById('profile').style.display = '';
+                // Indica qual foi o tipo de veículo selecionado
+                const selectedVehicleType = selectedButton.dataset.value;
+                console.log('Veículo selecionado:', selectedVehicleType);
+            }
+
+            // Quando o botão for clicado, ativa a função selectButton
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    selectButton(button);
+                });
+            });
+
+
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (user) {
+                // Utilizador está logado, mostra o botão de Logout
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('profile').style.display = '';
+            } else {
+                // Utilizador não está logado, mostra o botão de Login
+                document.getElementById('login').style.display = '';
+                document.getElementById('profile').style.display = 'none';
+            }
+
+            function Profile() {
+                if (user.name == 'admin') {
+                    window.location.replace('LoginAdmin.html');
+                } else if (user) {
+                    window.location.replace('LoginUser.html');
                 } else {
-                    // Utilizador não está logado, mostra o botão de Login
-                    document.getElementById('login').style.display = '';
-                    document.getElementById('profile').style.display = 'none';
+                    window.location.replace('Login.html');
                 }
+            }
 
-                // Função para redirecionar o utilizador para a página correta
-                function Profile() {
-                    if (user.name == 'admin') {
-                        window.location.replace('LoginAdmin.html');
-                    } else if (user) {
-                        window.location.replace('LoginUser.html');
-                    } else {
-                        window.location.replace('Login.html');
-                    }
+            function salvarDados() {
+                const nome = document.getElementById('nome').value;
+                const contribuinte = document.getElementById('contribuinte').value;
+                const email = document.getElementById('email').value;
+                const placa1 = document.getElementById('placa1').value;
+                const placa2 = document.getElementById('placa2').value;
+                const placa3 = document.getElementById('placa3').value;
+                const fullPlaca = `${placa1}-${placa2}-${placa3}`;
+                const tipo = document.querySelector('.selected').dataset.value;
+                localStorage.setItem('user', JSON.stringify({ name: user.name, email: email, matricula: fullPlaca, contribuinte: contribuinte, tipo: tipo }));
+
+                alert('Dados da simulação salvos');
+            }
+
+            function toggleMenu() {
+                const menuList = document.getElementById('menu-list');
+                menuList.classList.toggle('show');
+            }
+            // Apaga as informações colocadas nos inputs
+            function apagarSimu() {
+                document.getElementById('nome').value = '';
+                document.getElementById('contribuinte').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('placa1').value = '';
+                document.getElementById('placa2').value = '';
+                document.getElementById('placa3').value = '';
+                selectedVehicleType = null;
+                buttons.forEach(button => {
+                    button.classList.remove('selected');
+                    button.classList.add('unselected');
+                });
+            }
+            //recupera os dados da simução
+            function recuperarSimulacao() {
+                const dadosObjeto = JSON.parse(localStorage.getItem('user'));
+                if (dadosObjeto) {
+                    document.getElementById('nome').value = dadosObjeto.name;
+                    document.getElementById('contribuinte').value = dadosObjeto.contribuinte;
+                    document.getElementById('email').value = dadosObjeto.email;
+                    dadosObjeto.matricula = dadosObjeto.matricula.split('-');
+                    document.getElementById('placa1').value = dadosObjeto.matricula[0];
+                    document.getElementById('placa2').value = dadosObjeto.matricula[1];
+                    document.getElementById('placa3').value = dadosObjeto.matricula[2];
+                    // if (dadosObjeto.tipo == 'automovel') {
+                    //     document.getElementById('car').classList.add('selected');
+                    //     document.getElementById('car').classList.remove('unselected');
+                    // }
+                    // else if (dadosObjeto.tipo == 'motociclo') {
+                    //     document.getElementById('motociclo').classList.add('selected');
+                    //     document.getElementById('motociclo').classList.remove('unselected');
+                    // }
                 }
-
-                // Função para mostrar/esconder o menu
-                function toggleMenu() {
-                    const menuList = document.getElementById('menu-list');
-                    menuList.classList.toggle('show');
+                else {
+                    alert('Nenhum dado encontrado para recuperação');
                 }
-                // Apaga as informações colocadas nos inputs
-                function apagarSimu() {
-                    alert('Email da simulação enviado');
-                    document.getElementById('nome').value = '';
-                    document.getElementById('contribuinte').value = '';
-                    document.getElementById('matricula').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('placa1').value = '';
-                    document.getElementById('placa2').value = '';
-                    document.getElementById('placa3').value = '';
+            }
 
-                }
-
-            </script>
+        </script>
 
 </body>
 

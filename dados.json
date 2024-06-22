@@ -2,27 +2,42 @@
     {
         "name": "Teste",
         "email": "Teste@email.com",
-        "password":"Teste"
+        "password":"Teste",
+        "matricula":"00-00-00",
+        "contribuinte": "123456",
+        "tipo": "veiculo"
     },
     {
         "name": "admin",
         "email": "admin@email.com",
-        "password":"admin"
+        "password":"admin",
+        "matricula":"00-00-00",
+        "contribuinte": "123456",
+        "tipo": "motociclo"
     },
     {
         "name": "user",
         "email": "user@email.com",
-        "password":"user"
+        "password":"user",
+        "matricula":"00-00-00",
+        "contribuinte": "123456",
+        "tipo": "motociclo"
     },
     {
         "name": "user2",
         "email": "user2@email.com",
-        "password":"user2"
+        "password":"user2",
+        "matricula":"00-00-00",
+        "contribuinte": "123456",
+        "tipo": "veiculo"
     },
     {
         "name": "user3",
         "email": "user3@email.com",
-        "password":"user3"
+        "password":"user3",
+        "matricula":"00-00-00",
+        "contribuinte": "123456",
+        "tipo": "motociclo"
     }
 
 ]
