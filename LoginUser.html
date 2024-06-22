@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="menu">
             <div class="logo">
@@ -31,10 +32,12 @@
             </div>
         </div>
     </nav>
+    <!-- /Navbar -->
     <section class="contacts-section">
         <div class="contact-info">
             <section class="message-form-section">
                 <h2>Os Seus Dados</h2>
+                <!-- Formulário -->
                 <form>
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" readonly>
@@ -48,9 +51,11 @@
                     <label for="preco">Tipo:</label>
                     <input type="text" id="tipo" name="tipo" value="" readonly>
                 </form>
+                <!-- /Formulário -->
             </section>
         </div>
     </section>
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -78,6 +83,8 @@
         <div class="footer-bottom">
             <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
         </div>
+    </footer>
+    <!-- /Footer -->
         <script>
             // Recupera os dados do localStorage
             const user = JSON.parse(localStorage.getItem('user'));

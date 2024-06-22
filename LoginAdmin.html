@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="menu">
             <div class="logo">
@@ -23,13 +24,15 @@
                 <li><a href="Seguros.html">Simulador</a></li>
                 <li><a href="Promo.html">Promoções</a></li>
                 <li><a href="Contactos.html">Contacto</a></li>
-                <li><a href="#" id="logout" onclick="Logout()">Logout <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                <li><a href="#" id="logout" onclick="Logout()">Logout<i class="fa-solid fa-right-from-bracket"></i></a>
+                </li>
             </ul>
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
     </nav>
+    <!-- /Navbar -->
     <br>
     <br>
     <br>
@@ -37,6 +40,7 @@
     <br>
     <div class="container">
         <h2 style="text-align: center;">Utilizadores</h2>
+        <!-- Tabela para Carregar os Utilizadores -->
         <table id="users-table">
             <thead>
                 <tr>
@@ -44,6 +48,7 @@
                     <th>Email</th>
                     <th>Matricula</th>
                     <th>Contribuinte</th>
+                    <th>Tipo</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,7 +56,8 @@
             </tbody>
         </table>
     </div>
-
+    <!-- /Tabela -->
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -80,6 +86,7 @@
             <p>&copy; 2024 Motor Seguros. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <!-- /Footer -->
 
     <script>
         // Carregar os utilizadores do localStorage ao carregar a página
@@ -93,12 +100,14 @@
             const usersTableBody = document.getElementById('users-table').getElementsByTagName('tbody')[0];
             usersTableBody.innerHTML = '';
 
+            // Adicionar cada utilizador à tabela
             users.forEach(user => {
                 const row = usersTableBody.insertRow();
                 row.insertCell(0).innerText = user.name;
                 row.insertCell(1).innerText = user.email;
                 row.insertCell(2).innerText = user.matricula;
                 row.insertCell(3).innerText = user.contribuinte;
+                row.insertCell(4).innerText = user.tipo;
             });
         }
 

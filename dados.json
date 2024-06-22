@@ -5,7 +5,7 @@
         "password":"Teste",
         "matricula":"00-00-00",
         "contribuinte": "123456",
-        "tipo": "veiculo"
+        "tipo": "automovel"
     },
     {
         "name": "admin",
@@ -29,7 +29,7 @@
         "password":"user2",
         "matricula":"00-00-00",
         "contribuinte": "123456",
-        "tipo": "veiculo"
+        "tipo": "automovel"
     },
     {
         "name": "user3",

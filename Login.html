@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Styles/mainStyle.css">
 </head>
 <body class="body_login">
+    <!-- Navbar -->
     <nav>
         <div class="menu">
             <div class="logo">
@@ -23,6 +24,7 @@
             </ul>
         </div>
     </nav>
+    <!-- /Navbar -->
 
     <!-- Login -->
     <div class="main-login">
@@ -51,6 +53,7 @@
     <!-- /Login -->
 
     <script>
+        // Pasar os elementos do HTML para variáveis
         const emailInput = document.getElementById('email');
         const nameInput = document.getElementById('nome');
         const passInput = document.getElementById('password');
@@ -64,6 +67,7 @@
             localStorage.setItem('users', JSON.stringify(users));
         });
 
+        // Função para mostrar o formulário de signup
         function Signup() {
             document.getElementById('log1').style.display = 'none';
             document.getElementById('log2').style.display = '';
@@ -73,6 +77,7 @@
             loginBtn.style.display = 'none';
         }
 
+        // Função para mostrar o formulário de login
         function Login() {
             document.getElementById('log1').style.display = '';
             document.getElementById('log2').style.display = 'none';
@@ -94,12 +99,14 @@
             Criar(nameInput.value, emailInput.value, passInput.value);
         });
 
+        // Função para realizar o login
         function Entrar(emailForm, passForm) {
             const users = getUsersFromLocalStorage();
 
             // Encontra o utilizador correspondente ao email e password
             const user = users.find(user => user.email === emailForm && user.password === passForm);
 
+            // Se o utilizador existir, redireciona para a página de login correspondente
             if (user) {
                 console.log('Login realizado:', user);
                 localStorage.setItem('user', JSON.stringify({ name: user.name, email: user.email, matricula: user.matricula, contribuinte: user.contribuinte, tipo: user.tipo}));
@@ -116,8 +123,10 @@
 
         // Função para criar um novo utilizador
         function Criar(nameForm, emailForm, passForm) {
+            // Obter os utilizadores do localStorage
             const users = getUsersFromLocalStorage();
 
+            // Cria um novo utilizador
             const novoUtilizador = {
                 name: nameForm,
                 email: emailForm,
@@ -148,9 +157,8 @@
             return JSON.parse(localStorage.getItem('users')) || [];
         }
 
-        // Função para obter os dados do JSON (simulação)
+        // Função para obter os dados do JSON
         async function getUsersFromJson() {
-            // Simulação de carregamento dos dados de um arquivo JSON
             const response = await fetch('./dados.json');
             const data = await response.json();
             return data;

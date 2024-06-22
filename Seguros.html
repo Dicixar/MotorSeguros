@@ -177,6 +177,7 @@
                 document.getElementById('profile').style.display = 'none';
             }
 
+            // Função para redirecionar o utilizador para a página de perfil
             function Profile() {
                 if (user.name == 'admin') {
                     window.location.replace('LoginAdmin.html');
@@ -187,6 +188,7 @@
                 }
             }
 
+            // Função para salvar os dados da simulação
             function salvarDados() {
                 if (user) {
                     const nome = document.getElementById('nome').value;
@@ -199,11 +201,30 @@
                     const tipo = document.querySelector('.selected').dataset.value;
                     localStorage.setItem('user', JSON.stringify({ name: user.name, email: email, matricula: fullPlaca, contribuinte: contribuinte, tipo: tipo }));
 
+                    // Verifica se todos os campos estão preenchidos
+                    if (!nome || !contribuinte || !email || !placa1 || !placa2 || !placa3 || !selectedVehicleType) {
+                        alert('Por favor, preencha todos os campos.');
+                        return;
+                    }
+
+                    // Verifica se o número de contribuinte tem 9 dígitos e se é um número
+                    if (contribuinte.length !== 9 || isNaN(contribuinte)) {
+                        alert('O número de contribuinte deve ter 9 dígitos.');
+                        return;
+                    }
+
+                    // Verifica se a plaça tem 2 caracteres em cada campo
+                    if (placa1.length !== 2 || placa2.length !== 2 || placa3.length !== 2) {
+                        alert('A placa deve ter 2 caracteres em cada campo.');
+                        return;
+                    }
+
                     alert('Dados da simulação salvos');
                 }
                 else {
                     alert('Faça login para salvar os dados da simulação');
                 }
+                apagarSimu();
 
             }
 
